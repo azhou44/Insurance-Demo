@@ -1,0 +1,75 @@
+unique_name: Client Dimension
+object_type: dimension
+label: Client Dimension
+description: Corporate client (insured organisation group).
+type: standard
+hierarchies:
+- unique_name: Client Hierarchy
+  label: Client Hierarchy
+  description: Corporate client (insured organisation group).
+  folder: Client Attributes
+  filter_empty: 'yes'
+  levels:
+  - unique_name: Market Segment
+  - unique_name: Market Sub Segment
+  - unique_name: Client
+    secondary_attributes:
+    - unique_name: Client HQ Region
+      label: Client HQ Region
+      description: Client headquarters region (differs from risk location region).
+      dataset: TDIM_CLIENT
+      folder: Client Attributes
+      key_columns:
+      - REGION_NM
+      name_column: REGION_NM
+      sort_column: REGION_NM
+    - unique_name: Client HQ Country
+      label: Client HQ Country
+      description: Client headquarters country.
+      dataset: TDIM_CLIENT
+      folder: Client Attributes
+      key_columns:
+      - COUNTRY_NM
+      name_column: COUNTRY_NM
+      sort_column: COUNTRY_NM
+    - unique_name: Domicile Country
+      label: Domicile Country
+      description: Country where the client is domiciled.
+      dataset: TDIM_CLIENT
+      folder: Client Attributes
+      key_columns:
+      - DOMICILE_COUNTRY_NM
+      name_column: DOMICILE_COUNTRY_NM
+      sort_column: DOMICILE_COUNTRY_NM
+    - unique_name: Multinational
+      label: Multinational
+      description: '''Y'' if the client operates in multiple countries.'
+      dataset: TDIM_CLIENT
+      folder: Client Attributes
+      key_columns:
+      - MULTINATIONAL_IN
+      name_column: MULTINATIONAL_IN
+      sort_column: MULTINATIONAL_IN
+level_attributes:
+- unique_name: Market Segment
+  label: Market Segment
+  description: Client industry segment.
+  dataset: TDIM_CLIENT
+  key_columns:
+  - MARKET_SEGMENT_CD
+  name_column: MARKET_SEGMENT_NM
+- unique_name: Market Sub Segment
+  label: Market Sub Segment
+  description: Client industry sub-segment.
+  dataset: TDIM_CLIENT
+  key_columns:
+  - MARKET_SUB_SEGMENT_CD
+  name_column: MARKET_SUB_SEGMENT_NM
+- unique_name: Client
+  label: Client
+  description: Client organisation (800 clients).
+  dataset: TDIM_CLIENT
+  key_columns:
+  - DIM_CLIENT_ID
+  name_column: COMPANY_NM
+  is_unique_key: true

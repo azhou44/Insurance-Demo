@@ -1,0 +1,9 @@
+unique_name: Outstanding Reserve
+object_type: metric
+label: Outstanding Reserve
+description: Case reserves outstanding at the current valuation (latest snapshot only).
+calculation_method: sum
+format: $#,##0
+dataset: TFACT_KPI
+column: OUTSTANDING_RESERVE_CURRENT_AMT
+unrelated_dimensions_handling: repeat

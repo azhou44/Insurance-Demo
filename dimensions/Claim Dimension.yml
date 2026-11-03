@@ -1,0 +1,49 @@
+unique_name: Claim Dimension
+object_type: dimension
+label: Claim Dimension
+description: Claim, grouped by catastrophe event. Premium rows carry no claim.
+type: standard
+hierarchies:
+- unique_name: Claim Hierarchy
+  label: Claim Hierarchy
+  description: Claim, grouped by catastrophe event. Premium rows carry no claim.
+  folder: Claim Attributes
+  filter_empty: 'yes'
+  levels:
+  - unique_name: Catastrophe
+  - unique_name: Claim
+    secondary_attributes:
+    - unique_name: Type of Loss
+      label: Type of Loss
+      description: Peril or cause of loss.
+      dataset: TDIM_CLAIM
+      folder: Claim Attributes
+      key_columns:
+      - TYPE_OF_LOSS
+      name_column: TYPE_OF_LOSS
+      sort_column: TYPE_OF_LOSS
+    - unique_name: Claim Accident Year
+      label: Claim Accident Year
+      description: Accident year of the claim.
+      dataset: TDIM_CLAIM
+      folder: Claim Attributes
+      key_columns:
+      - ACCIDENT_YEAR_NO
+      name_column: ACCIDENT_YEAR_NO
+      sort_column: ACCIDENT_YEAR_NO
+level_attributes:
+- unique_name: Catastrophe
+  label: Catastrophe
+  description: Catastrophe event (Hurricane Delphine 2024, European Floods 2025); empty for non-catastrophe claims.
+  dataset: TDIM_CLAIM
+  key_columns:
+  - CATASTROPHE_NM
+  name_column: CATASTROPHE_NM
+- unique_name: Claim
+  label: Claim
+  description: Claim number.
+  dataset: TDIM_CLAIM
+  key_columns:
+  - DIM_CLAIM_ID
+  name_column: CLAIM_NO
+  is_unique_key: true

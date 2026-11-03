@@ -1,0 +1,14 @@
+unique_name: Incurred Loss Balance
+object_type: metric
+label: Incurred Loss Balance
+description: 'Incurred loss as of a valuation snapshot: the latest snapshot in the period on the Snapshot date;
+  never added across snapshots.'
+calculation_method: sum
+format: $#,##0
+dataset: TFACT_KPI
+column: INCURRED_LOSS_AMT
+unrelated_dimensions_handling: repeat
+semi_additive:
+  position: last
+  relationships:
+  - TFACT_KPI_Date_Dimension_Snapshot

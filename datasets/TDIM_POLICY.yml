@@ -1,0 +1,43 @@
+unique_name: TDIM_POLICY
+object_type: dataset
+label: TDIM_POLICY
+description: 'One row per commercial policy: number, term, limit, deductible, insured.'
+connection_id: Commercial Insurance Connection
+table: TDIM_POLICY
+columns:
+- name: DIM_POLICY_ID
+  data_type: long
+- name: AGREEMENT_ID
+  data_type: string
+- name: DIM_POLICY_KEY
+  data_type: string
+- name: ORIGINAL_POLICY_NO
+  data_type: string
+- name: POLICY_EFFECTIVE_DT
+  data_type: date
+- name: POLICY_EXPIRATION_DT
+  data_type: date
+- name: COMPANY_CD
+  data_type: string
+- name: COMPANY_NM
+  data_type: string
+- name: COUNTRY_CD
+  data_type: string
+- name: COUNTRY_NM
+  data_type: string
+- name: SOURCE_SYSTEM_CD
+  data_type: string
+- name: SYSTEM_ID
+  data_type: string
+- name: MARKET_SEGMENT_CD
+  data_type: string
+- name: COMMISION_RATIO
+  data_type: decimal
+- name: POLICY_TYPE_CD
+  data_type: string
+- name: INSURED_NM
+  data_type: string
+- name: POLICY_LIMIT
+  data_type: decimal
+- name: POLICY_DEDUCTIBLE
+  data_type: decimal

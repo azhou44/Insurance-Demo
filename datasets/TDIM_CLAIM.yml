@@ -1,0 +1,37 @@
+unique_name: TDIM_CLAIM
+object_type: dataset
+label: TDIM_CLAIM
+description: 'One row per claim: dates, type of loss, accident year and catastrophe event.'
+connection_id: Commercial Insurance Connection
+table: TDIM_CLAIM
+columns:
+- name: DIM_CLAIM_ID
+  data_type: long
+- name: CLAIM_ID
+  data_type: string
+- name: DIM_CLAIM_KEY
+  data_type: string
+- name: CATASTROPHE_CD
+  data_type: long
+- name: CATASTROPHE_NM
+  data_type: string
+- name: CLAIM_NO
+  data_type: string
+- name: LOSS_DT
+  data_type: date
+- name: LOSS_RECEIVED_DT
+  data_type: date
+- name: LOSS_REPORT_DT
+  data_type: date
+- name: TYPE_OF_LOSS
+  data_type: string
+- name: ACCIDENT_YEAR_NO
+  data_type: string
+- name: ISSUING_BRANCH_CD
+  data_type: string
+- name: SYSTEM_ID
+  data_type: string
+- name: CLAIMANT_NM
+  data_type: string
+- name: CLAIM_DS
+  data_type: string

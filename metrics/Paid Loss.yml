@@ -1,0 +1,9 @@
+unique_name: Paid Loss
+object_type: metric
+label: Paid Loss
+description: Paid loss at the current valuation (latest snapshot only).
+calculation_method: sum
+format: $#,##0
+dataset: TFACT_KPI
+column: PAID_LOSS_CURRENT_AMT
+unrelated_dimensions_handling: repeat

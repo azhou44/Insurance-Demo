@@ -1,0 +1,20 @@
+# build.yaml for generating the AtScale SML model from the Metabase export.
+# Everything substantive comes from the files below, which were read from Metabase.
+# AtScale connection (as_connection): SnowflakePartner on demo2.
+inputs:
+  use_case: ./use_case.md
+  ddl: ./ddl.sql
+  erd: ./erd.mmd
+  data_source:
+    data_profile_yaml: ./data_profile.yaml
+output_dir: ../sml/metabase_generated
+unrelated_dimension_handling: repeat
+warehouse: Snowflake
+database: SE_DEMO_LIBRARY
+schema: COMMERCIAL_INSURANCE
+model_unique_name: commercial_insurance_metabase
+catalog_unique_name: commercial_insurance_metabase_catalog
+currency: USD
+time_window: calendar
+semi_additive_default: last_non_empty
+mode: programmatic

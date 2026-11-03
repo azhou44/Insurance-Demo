@@ -1,0 +1,84 @@
+unique_name: TFACT_KPI
+object_type: dataset
+label: TFACT_KPI
+description: Monthly KPI fact. Premium rows (no claim) carry premium, expense and financial flows; loss rows carry
+  cumulative loss balances per claim per valuation snapshot. Calculated *_CURRENT_AMT columns keep only the latest
+  snapshot (CURRENT_VALUATION_IN = 'Y').
+connection_id: Commercial Insurance Connection
+table: TFACT_KPI
+columns:
+- name: FACT_KPI_ID
+  data_type: long
+- name: DIM_SNAPSHOT_DATE_ID
+  data_type: long
+- name: DIM_FISCAL_MONTH_END_DATE_ID
+  data_type: long
+- name: DIM_ACCIDENT_MONTH_END_DATE_ID
+  data_type: long
+- name: DIM_POLICY_ID
+  data_type: long
+- name: DIM_POLICY_KEY
+  data_type: string
+- name: DIM_CLAIM_ID
+  data_type: long
+- name: DIM_CLAIM_KEY
+  data_type: string
+- name: DIM_LOCATION_ID
+  data_type: long
+- name: DIM_COMPANY_ID
+  data_type: long
+- name: DIM_BUSINESS_UNIT_ID
+  data_type: long
+- name: DIM_CLIENT_ID
+  data_type: long
+- name: DIM_CLIENT_KEY
+  data_type: string
+- name: DIM_POLICY_COVERAGE_ID
+  data_type: long
+- name: DIM_POLICY_COVERAGE_KEY
+  data_type: string
+- name: GROSS_WRITTEN_PREMIUM_AMT
+  data_type: decimal
+- name: NET_WRITTEN_PREMIUM_AMT
+  data_type: decimal
+- name: NET_EARNED_PREMIUM_AMT
+  data_type: decimal
+- name: INCURRED_LOSS_AMT
+  data_type: decimal
+- name: PAID_LOSS_AMT
+  data_type: decimal
+- name: OUTSTANDING_RESERVE_AMT
+  data_type: decimal
+- name: CLAIM_EXPENSE_AMT
+  data_type: decimal
+- name: NET_COMMISSION_AMT
+  data_type: decimal
+- name: UNDERWRITING_EXPENSE_AMT
+  data_type: decimal
+- name: INVESTMENT_INCOME_AMT
+  data_type: decimal
+- name: OTHER_FINANCIAL_REVENUE_AMT
+  data_type: decimal
+- name: TAX_AND_OTHER_EXPENSE_AMT
+  data_type: decimal
+- name: POLICY_COUNT
+  data_type: long
+- name: CLAIM_COUNT
+  data_type: long
+- name: CURRENT_VALUATION_IN
+  data_type: string
+- name: INCURRED_LOSS_CURRENT_AMT
+  data_type: decimal
+  sql: IFF(CURRENT_VALUATION_IN = 'Y', INCURRED_LOSS_AMT, 0)
+- name: PAID_LOSS_CURRENT_AMT
+  data_type: decimal
+  sql: IFF(CURRENT_VALUATION_IN = 'Y', PAID_LOSS_AMT, 0)
+- name: OUTSTANDING_RESERVE_CURRENT_AMT
+  data_type: decimal
+  sql: IFF(CURRENT_VALUATION_IN = 'Y', OUTSTANDING_RESERVE_AMT, 0)
+- name: CLAIM_EXPENSE_CURRENT_AMT
+  data_type: decimal
+  sql: IFF(CURRENT_VALUATION_IN = 'Y', CLAIM_EXPENSE_AMT, 0)
+- name: POLICY_WRITTEN_CNT
+  data_type: long
+  sql: IFF(GROSS_WRITTEN_PREMIUM_AMT > 0, 1, 0)

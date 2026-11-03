@@ -1,0 +1,9 @@
+unique_name: Tax and Other Expense
+object_type: metric
+label: Tax and Other Expense
+description: Premium taxes and other expense.
+calculation_method: sum
+format: $#,##0
+dataset: TFACT_KPI
+column: TAX_AND_OTHER_EXPENSE_AMT
+unrelated_dimensions_handling: repeat

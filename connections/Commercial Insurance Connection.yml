@@ -1,0 +1,6 @@
+unique_name: Commercial Insurance Connection
+label: Commercial Insurance Connection
+object_type: connection
+as_connection: SnowflakePartner
+database: SE_DEMO_LIBRARY
+schema: COMMERCIAL_INSURANCE

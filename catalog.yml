@@ -1,0 +1,8 @@
+unique_name: commercial_insurance_metabase_catalog
+object_type: catalog
+label: Commercial Insurance (from Metabase)
+version: 1.7
+description: 'Commercial P&C insurance KPIs generated from the Metabase business catalog: premium, losses and reserves,
+  underwriting ratios and results, with snapshot-aware loss balances.'
+aggressive_agg_promotion: false
+build_speculative_aggs: false

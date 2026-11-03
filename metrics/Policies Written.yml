@@ -1,0 +1,9 @@
+unique_name: Policies Written
+object_type: metric
+label: Policies Written
+description: Policy coverages written (rows with gross written premium > 0). Adds up over time.
+calculation_method: sum
+format: '#,##0'
+dataset: TFACT_KPI
+column: POLICY_WRITTEN_CNT
+unrelated_dimensions_handling: repeat

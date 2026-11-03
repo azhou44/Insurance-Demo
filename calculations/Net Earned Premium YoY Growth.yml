@@ -1,0 +1,10 @@
+unique_name: Net Earned Premium YoY Growth
+object_type: metric_calc
+label: Net Earned Premium YoY Growth
+description: 'Year-over-year growth of Net Earned Premium: (this period - same period last year) / same period last
+  year, fiscal date.'
+expression: 'CASE WHEN ISEMPTY([Measures].[Net Earned Premium Prior Year]) THEN NULL
+
+  ELSE Divide(([Fiscal Date Dimension].[Fiscal Date Hierarchy].CurrentMember, [Measures].[Net Earned Premium]) -
+  [Measures].[Net Earned Premium Prior Year], [Measures].[Net Earned Premium Prior Year]) END'
+format: percent

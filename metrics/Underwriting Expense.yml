@@ -1,0 +1,9 @@
+unique_name: Underwriting Expense
+object_type: metric
+label: Underwriting Expense
+description: Underwriting and acquisition expense other than commission. Adds up over time.
+calculation_method: sum
+format: $#,##0
+dataset: TFACT_KPI
+column: UNDERWRITING_EXPENSE_AMT
+unrelated_dimensions_handling: repeat

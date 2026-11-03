@@ -1,0 +1,10 @@
+unique_name: Incurred Loss
+object_type: metric
+label: Incurred Loss
+description: Incurred loss at the current valuation (latest snapshot only). Adds across every dimension; slice by
+  the Accident date for accident years.
+calculation_method: sum
+format: $#,##0
+dataset: TFACT_KPI
+column: INCURRED_LOSS_CURRENT_AMT
+unrelated_dimensions_handling: repeat

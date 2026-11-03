@@ -1,0 +1,7 @@
+unique_name: Underwriting Result
+object_type: metric_calc
+label: Underwriting Result
+description: Net Earned Premium - Incurred Loss - Underwriting Expense - Net Commission. Accident-year basis.
+expression: '[Measures].[Net Earned Premium] - [Measures].[Incurred Loss] - [Measures].[Underwriting Expense] -
+  [Measures].[Net Commission]'
+format: $#,##0

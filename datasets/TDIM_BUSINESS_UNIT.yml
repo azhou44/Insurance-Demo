@@ -1,0 +1,27 @@
+unique_name: TDIM_BUSINESS_UNIT
+object_type: dataset
+label: TDIM_BUSINESS_UNIT
+description: 'Underwriting business unit: Global Commercial > LOB Group > Line of Business.'
+connection_id: Commercial Insurance Connection
+table: TDIM_BUSINESS_UNIT
+columns:
+- name: DIM_BUSINESS_UNIT_ID
+  data_type: long
+- name: GDW_RDM_BUSINESS_UNIT_CD
+  data_type: string
+- name: DIM_BUSINESS_UNIT_KEY
+  data_type: string
+- name: BUSINESS_UNIT_LEVEL_1_NODE_CD
+  data_type: string
+- name: BUSINESS_UNIT_LEVEL_1_NODE_DS
+  data_type: string
+- name: BUSINESS_UNIT_LEVEL_2_NODE_CD
+  data_type: string
+- name: BUSINESS_UNIT_LEVEL_2_NODE_DS
+  data_type: string
+- name: BUSINESS_UNIT_LEVEL_3_NODE_CD
+  data_type: string
+- name: BUSINESS_UNIT_LEVEL_3_NODE_DS
+  data_type: string
+- name: BUSINESS_UNIT_DS
+  data_type: string

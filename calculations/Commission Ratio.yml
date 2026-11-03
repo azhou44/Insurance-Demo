@@ -1,0 +1,6 @@
+unique_name: Commission Ratio
+object_type: metric_calc
+label: Commission Ratio
+description: Net Commission / Net Earned Premium, from totals.
+expression: Divide([Measures].[Net Commission], [Measures].[Net Earned Premium])
+format: percent

@@ -1,0 +1,177 @@
+# Built from Metabase: exact row, distinct and null counts computed through Metabase in the warehouse;
+# value lists from Metabase field values (low-cardinality text columns).
+warehouse: snowflake
+tables:
+  - name: TDIM_BUSINESS_UNIT
+    rows: 8
+    columns:
+      - { name: DIM_BUSINESS_UNIT_ID, type: NUMBER, nulls: 0, distinct: 8 }
+      - { name: GDW_RDM_BUSINESS_UNIT_CD, type: VARCHAR, nulls: 0, distinct: 8, values: ["AUTO", "AVI", "CAS", "ENER", "FL", "MAR", "PROP", "WC"] }
+      - { name: DIM_BUSINESS_UNIT_KEY, type: VARCHAR, nulls: 0, distinct: 8, values: ["BU-AUTO", "BU-AVI", "BU-CAS", "BU-ENER", "BU-FL", "BU-MAR", "BU-PROP", "BU-WC"] }
+      - { name: BUSINESS_UNIT_LEVEL_1_NODE_CD, type: VARCHAR, nulls: 0, distinct: 1, values: ["GC"] }
+      - { name: BUSINESS_UNIT_LEVEL_1_NODE_DS, type: VARCHAR, nulls: 0, distinct: 1, values: ["Global Commercial"] }
+      - { name: BUSINESS_UNIT_LEVEL_2_NODE_CD, type: VARCHAR, nulls: 0, distinct: 3, values: ["FIN", "PRO", "SPE"] }
+      - { name: BUSINESS_UNIT_LEVEL_2_NODE_DS, type: VARCHAR, nulls: 0, distinct: 3, values: ["Financial Lines", "Property & Casualty", "Specialty"] }
+      - { name: BUSINESS_UNIT_LEVEL_3_NODE_CD, type: VARCHAR, nulls: 0, distinct: 8, values: ["AUTO", "AVI", "CAS", "ENER", "FL", "MAR", "PROP", "WC"] }
+      - { name: BUSINESS_UNIT_LEVEL_3_NODE_DS, type: VARCHAR, nulls: 0, distinct: 8, values: ["Aviation", "Commercial Auto", "Commercial Property", "Energy", "Financial Lines", "General Liability", "Marine", "Workers Compensation"] }
+      - { name: BUSINESS_UNIT_DS, type: VARCHAR, nulls: 0, distinct: 8, values: ["Aviation", "Commercial Auto", "Commercial Property", "Energy", "Financial Lines", "General Liability", "Marine", "Workers Compensation"] }
+  - name: TDIM_CLAIM
+    rows: 9110
+    columns:
+      - { name: DIM_CLAIM_ID, type: NUMBER, nulls: 0, distinct: 9110 }
+      - { name: CLAIM_ID, type: VARCHAR, nulls: 0, distinct: 9110 }
+      - { name: DIM_CLAIM_KEY, type: VARCHAR, nulls: 0, distinct: 9110 }
+      - { name: CATASTROPHE_CD, type: NUMBER, nulls: 8910, distinct: 2 }
+      - { name: CATASTROPHE_NM, type: VARCHAR, nulls: 8910, distinct: 2, values: ["European Floods 2025", "Hurricane Delphine 2024"] }
+      - { name: CLAIM_NO, type: VARCHAR, nulls: 0, distinct: 9110 }
+      - { name: LOSS_DT, type: DATE, nulls: 0, distinct: 1073 }
+      - { name: LOSS_RECEIVED_DT, type: DATE, nulls: 0, distinct: 1081 }
+      - { name: LOSS_REPORT_DT, type: DATE, nulls: 0, distinct: 1082 }
+      - { name: TYPE_OF_LOSS, type: VARCHAR, nulls: 0, distinct: 36 }
+      - { name: ACCIDENT_YEAR_NO, type: VARCHAR, nulls: 0, distinct: 4, values: ["2023", "2024", "2025", "2026"] }
+      - { name: ISSUING_BRANCH_CD, type: VARCHAR, nulls: 0, distinct: 9, values: ["AUT", "AVI", "CYB", "DO", "ENE", "GLP", "MAR", "PRO", "WC"] }
+      - { name: SYSTEM_ID, type: VARCHAR, nulls: 0, distinct: 1, values: ["GDW"] }
+      - { name: CLAIMANT_NM, type: VARCHAR, nulls: 0, distinct: 9110 }
+      - { name: CLAIM_DS, type: VARCHAR, nulls: 0, distinct: 37 }
+  - name: TDIM_CLIENT
+    rows: 800
+    columns:
+      - { name: DIM_CLIENT_ID, type: NUMBER, nulls: 0, distinct: 800 }
+      - { name: DIM_CLIENT_KEY, type: VARCHAR, nulls: 0, distinct: 800 }
+      - { name: DOMICILE_COUNTRY_NM, type: VARCHAR, nulls: 0, distinct: 13, values: ["Australia", "Brazil", "Canada", "France", "Germany", "Hong Kong", "Japan", "Mexico", "Singapore", "Switzerland", "United Arab Emirates", "United Kingdom", "United States"] }
+      - { name: COMPANY_NM, type: VARCHAR, nulls: 0, distinct: 800 }
+      - { name: DOMICILE_COUNTRY_CD, type: VARCHAR, nulls: 0, distinct: 13, values: ["AE", "AU", "BR", "CA", "CH", "DE", "FR", "GB", "HK", "JP", "MX", "SG", "US"] }
+      - { name: MULTINATIONAL_IN, type: VARCHAR, nulls: 0, distinct: 2, values: ["N", "Y"] }
+      - { name: MARKET_SEGMENT_CD, type: VARCHAR, nulls: 0, distinct: 9, values: ["CONS", "ENUT", "FIN", "HLTH", "MFG", "REAL", "RETL", "TECH", "TRANS"] }
+      - { name: MARKET_SEGMENT_NM, type: VARCHAR, nulls: 0, distinct: 9, values: ["Construction & Engineering", "Energy & Utilities", "Financial Services", "Healthcare", "Manufacturing", "Real Estate", "Retail & Consumer", "Technology", "Transportation & Logistics"] }
+      - { name: MARKET_SUB_SEGMENT_CD, type: VARCHAR, nulls: 0, distinct: 26 }
+      - { name: MARKET_SUB_SEGMENT_NM, type: VARCHAR, nulls: 0, distinct: 26 }
+      - { name: COUNTRY_CD, type: VARCHAR, nulls: 0, distinct: 13, values: ["AE", "AU", "BR", "CA", "CH", "DE", "FR", "GB", "HK", "JP", "MX", "SG", "US"] }
+      - { name: COUNTRY_NM, type: VARCHAR, nulls: 0, distinct: 13, values: ["Australia", "Brazil", "Canada", "France", "Germany", "Hong Kong", "Japan", "Mexico", "Singapore", "Switzerland", "United Arab Emirates", "United Kingdom", "United States"] }
+      - { name: REGION_CD, type: VARCHAR, nulls: 0, distinct: 3, values: ["AMER", "APAC", "EMEA"] }
+      - { name: REGION_NM, type: VARCHAR, nulls: 0, distinct: 3, values: ["APAC", "Americas", "EMEA"] }
+      - { name: SUB_REGION_CD, type: VARCHAR, nulls: 0, distinct: 6, values: ["ASIA", "EURO", "LATI", "MIDD", "NORT", "PACI"] }
+      - { name: SUB_REGION_NM, type: VARCHAR, nulls: 0, distinct: 6, values: ["Asia", "Europe", "Latin America", "Middle East", "North America", "Pacific"] }
+  - name: TDIM_COMPANY
+    rows: 6
+    columns:
+      - { name: DIM_COMPANY_ID, type: NUMBER, nulls: 0, distinct: 6 }
+      - { name: COMPANY, type: VARCHAR, nulls: 0, distinct: 6, values: ["HLAP", "HLES", "HLEU", "HLNF", "HLSP", "HLUK"] }
+      - { name: DIM_COMPANY_KEY, type: VARCHAR, nulls: 0, distinct: 6, values: ["HLAP", "HLES", "HLEU", "HLNF", "HLSP", "HLUK"] }
+      - { name: COMPANY_NM, type: VARCHAR, nulls: 0, distinct: 6, values: ["Harborline Asia Pacific Insurance Ltd", "Harborline Europe SA", "Harborline Excess & Surplus Insurance Co", "Harborline National Fire Insurance Co", "Harborline Specialty Insurance Co", "Harborline UK Ltd"] }
+      - { name: COMPANY_LEVEL_1_NODE_CD, type: VARCHAR, nulls: 0, distinct: 1, values: ["HLG"] }
+      - { name: COMPANY_LEVEL_1_NODE_DS, type: VARCHAR, nulls: 0, distinct: 1, values: ["Harborline Insurance Group"] }
+      - { name: COMPANY_LEVEL_2_NODE_CD, type: VARCHAR, nulls: 0, distinct: 1, values: ["GI"] }
+      - { name: COMPANY_LEVEL_2_NODE_DS, type: VARCHAR, nulls: 0, distinct: 1, values: ["General Insurance"] }
+      - { name: COMPANY_LEVEL_3_NODE_CD, type: VARCHAR, nulls: 0, distinct: 2, values: ["HLINTL", "HLNA"] }
+      - { name: COMPANY_LEVEL_3_NODE_DS, type: VARCHAR, nulls: 0, distinct: 2, values: ["Harborline International", "Harborline North America"] }
+      - { name: COMPANY_LEVEL_4_NODE_CD, type: VARCHAR, nulls: 0, distinct: 6, values: ["HLAP", "HLES", "HLEU", "HLNF", "HLSP", "HLUK"] }
+      - { name: COMPANY_LEVEL_4_NODE_DS, type: VARCHAR, nulls: 0, distinct: 6, values: ["Harborline Asia Pacific Insurance Ltd", "Harborline Europe SA", "Harborline Excess & Surplus Insurance Co", "Harborline National Fire Insurance Co", "Harborline Specialty Insurance Co", "Harborline UK Ltd"] }
+  - name: TDIM_DATE
+    rows: 2557
+    columns:
+      - { name: DIM_DATE_ID, type: NUMBER, nulls: 0, distinct: 2557 }
+      - { name: FULL_DT, type: DATE, nulls: 0, distinct: 2557 }
+      - { name: DOMESTIC_INTERNATIONAL_CD, type: VARCHAR, nulls: 0, distinct: 1, values: ["ALL"] }
+      - { name: DAY_NM, type: VARCHAR, nulls: 0, distinct: 7, values: ["Friday", "Monday", "Saturday", "Sunday", "Thursday", "Tuesday", "Wednesday"] }
+      - { name: DAY_OF_WEEK_NO, type: VARCHAR, nulls: 0, distinct: 7, values: ["1", "2", "3", "4", "5", "6", "7"] }
+      - { name: DAY_OF_MONTH_NO, type: VARCHAR, nulls: 0, distinct: 31 }
+      - { name: DAY_OF_QUARTER_NO, type: VARCHAR, nulls: 0, distinct: 92 }
+      - { name: DAY_OF_YEAR_NO, type: VARCHAR, nulls: 0, distinct: 366 }
+      - { name: MONTH_NO, type: VARCHAR, nulls: 0, distinct: 12, values: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"] }
+      - { name: MONTH_NM, type: VARCHAR, nulls: 0, distinct: 12, values: ["April", "August", "December", "February", "January", "July", "June", "March", "May", "November", "October", "September"] }
+      - { name: MONTH_OF_QUARTER_NO, type: VARCHAR, nulls: 0, distinct: 3, values: ["1", "2", "3"] }
+      - { name: QUARTER_NO, type: VARCHAR, nulls: 0, distinct: 4, values: ["1", "2", "3", "4"] }
+      - { name: YEAR_NO, type: VARCHAR, nulls: 0, distinct: 7, values: ["2020", "2021", "2022", "2023", "2024", "2025", "2026"] }
+      - { name: MONTH_YEAR_NO, type: VARCHAR, nulls: 0, distinct: 84 }
+      - { name: WEEKDAY_IN, type: VARCHAR, nulls: 0, distinct: 2, values: ["N", "Y"] }
+      - { name: WEEKEND_IN, type: VARCHAR, nulls: 0, distinct: 2, values: ["N", "Y"] }
+      - { name: HOLIDAY_IN, type: VARCHAR, nulls: 0, distinct: 2, values: ["N", "Y"] }
+      - { name: HOLIDAY_NM, type: VARCHAR, nulls: 2529, distinct: 4, values: ["Christmas Day", "Independence Day", "New Year's Day", "Thanksgiving"] }
+      - { name: YEAR_QUARTER_NM, type: VARCHAR, nulls: 0, distinct: 28 }
+      - { name: YEAR_MONTH_NM, type: VARCHAR, nulls: 0, distinct: 84 }
+  - name: TDIM_LOCATION
+    rows: 16
+    columns:
+      - { name: DIM_LOCATION_ID, type: NUMBER, nulls: 0, distinct: 16 }
+      - { name: LOCATION_CD, type: VARCHAR, nulls: 0, distinct: 16, values: ["AE-DXB", "AU-SYD", "BR-SP", "CA-ON", "CH-ZRH", "DE-FRA", "FR-PAR", "GB-LDN", "HK-HKG", "JP-TYO", "MX-MX", "SG-SIN", "US-FL", "US-IL", "US-NY", "US-TX"] }
+      - { name: DIM_LOCATION_KEY, type: VARCHAR, nulls: 0, distinct: 16, values: ["AE-DXB", "AU-SYD", "BR-SP", "CA-ON", "CH-ZRH", "DE-FRA", "FR-PAR", "GB-LDN", "HK-HKG", "JP-TYO", "MX-MX", "SG-SIN", "US-FL", "US-IL", "US-NY", "US-TX"] }
+      - { name: LOCATION_DS, type: VARCHAR, nulls: 0, distinct: 16, values: ["Chicago, United States", "Dubai, United Arab Emirates", "Frankfurt, Germany", "Hong Kong, Hong Kong", "Houston, United States", "London, United Kingdom", "Mexico City, Mexico", "Miami, United States", "New York, United States", "Paris, France", "Sao Paulo, Brazil", "Singapore, Singapore", "Sydney, Australia", "Tokyo, Japan", "Toronto, Canada", "Zurich, Switzerland"] }
+      - { name: LOCATION_LEVEL_1_NODE_CD, type: VARCHAR, nulls: 0, distinct: 1, values: ["GLOBAL"] }
+      - { name: LOCATION_LEVEL_1_NODE_DS, type: VARCHAR, nulls: 0, distinct: 1, values: ["Global"] }
+      - { name: LOCATION_LEVEL_2_NODE_CD, type: VARCHAR, nulls: 0, distinct: 3, values: ["AMER", "APAC", "EMEA"] }
+      - { name: LOCATION_LEVEL_2_NODE_DS, type: VARCHAR, nulls: 0, distinct: 3, values: ["APAC", "Americas", "EMEA"] }
+      - { name: LOCATION_LEVEL_3_NODE_CD, type: VARCHAR, nulls: 0, distinct: 6, values: ["ASIA", "EURO", "LATI", "MIDD", "NORT", "PACI"] }
+      - { name: LOCATION_LEVEL_3_NODE_DS, type: VARCHAR, nulls: 0, distinct: 6, values: ["Asia", "Europe", "Latin America", "Middle East", "North America", "Pacific"] }
+      - { name: LOCATION_LEVEL_4_NODE_CD, type: VARCHAR, nulls: 0, distinct: 13, values: ["AE", "AU", "BR", "CA", "CH", "DE", "FR", "GB", "HK", "JP", "MX", "SG", "US"] }
+      - { name: LOCATION_LEVEL_4_NODE_DS, type: VARCHAR, nulls: 0, distinct: 13, values: ["Australia", "Brazil", "Canada", "France", "Germany", "Hong Kong", "Japan", "Mexico", "Singapore", "Switzerland", "United Arab Emirates", "United Kingdom", "United States"] }
+      - { name: LOCATION_LEVEL_5_NODE_CD, type: VARCHAR, nulls: 0, distinct: 16, values: ["AE-DXB", "AU-SYD", "BR-SP", "CA-ON", "CH-ZRH", "DE-FRA", "FR-PAR", "GB-LDN", "HK-HKG", "JP-TYO", "MX-MX", "SG-SIN", "US-FL", "US-IL", "US-NY", "US-TX"] }
+      - { name: LOCATION_LEVEL_5_NODE_DS, type: VARCHAR, nulls: 0, distinct: 16, values: ["Chicago", "Dubai", "Frankfurt", "Hong Kong", "Houston", "London", "Mexico City", "Miami", "New York", "Paris", "Sao Paulo", "Singapore", "Sydney", "Tokyo", "Toronto", "Zurich"] }
+  - name: TDIM_POLICY
+    rows: 5000
+    columns:
+      - { name: DIM_POLICY_ID, type: NUMBER, nulls: 0, distinct: 5000 }
+      - { name: AGREEMENT_ID, type: VARCHAR, nulls: 0, distinct: 5000 }
+      - { name: DIM_POLICY_KEY, type: VARCHAR, nulls: 0, distinct: 5000 }
+      - { name: ORIGINAL_POLICY_NO, type: VARCHAR, nulls: 0, distinct: 5000 }
+      - { name: POLICY_EFFECTIVE_DT, type: DATE, nulls: 0, distinct: 1243 }
+      - { name: POLICY_EXPIRATION_DT, type: DATE, nulls: 0, distinct: 1243 }
+      - { name: COMPANY_CD, type: VARCHAR, nulls: 0, distinct: 6, values: ["HLAP", "HLES", "HLEU", "HLNF", "HLSP", "HLUK"] }
+      - { name: COMPANY_NM, type: VARCHAR, nulls: 0, distinct: 6, values: ["Harborline Asia Pacific Insurance Ltd", "Harborline Europe SA", "Harborline Excess & Surplus Insurance Co", "Harborline National Fire Insurance Co", "Harborline Specialty Insurance Co", "Harborline UK Ltd"] }
+      - { name: COUNTRY_CD, type: VARCHAR, nulls: 0, distinct: 13, values: ["AE", "AU", "BR", "CA", "CH", "DE", "FR", "GB", "HK", "JP", "MX", "SG", "US"] }
+      - { name: COUNTRY_NM, type: VARCHAR, nulls: 0, distinct: 13, values: ["Australia", "Brazil", "Canada", "France", "Germany", "Hong Kong", "Japan", "Mexico", "Singapore", "Switzerland", "United Arab Emirates", "United Kingdom", "United States"] }
+      - { name: SOURCE_SYSTEM_CD, type: VARCHAR, nulls: 0, distinct: 1, values: ["GDW"] }
+      - { name: SYSTEM_ID, type: VARCHAR, nulls: 0, distinct: 5, values: ["SYS1", "SYS2", "SYS3", "SYS4", "SYS5"] }
+      - { name: MARKET_SEGMENT_CD, type: VARCHAR, nulls: 0, distinct: 9, values: ["CONS", "ENUT", "FIN", "HLTH", "MFG", "REAL", "RETL", "TECH", "TRANS"] }
+      - { name: COMMISION_RATIO, type: NUMBER, nulls: 0, distinct: 4830 }
+      - { name: POLICY_TYPE_CD, type: VARCHAR, nulls: 0, distinct: 2, values: ["N", "R"] }
+      - { name: INSURED_NM, type: VARCHAR, nulls: 0, distinct: 799 }
+      - { name: POLICY_LIMIT, type: NUMBER, nulls: 0, distinct: 4775 }
+      - { name: POLICY_DEDUCTIBLE, type: NUMBER, nulls: 0, distinct: 2148 }
+  - name: TDIM_POLICY_COVERAGE
+    rows: 11
+    columns:
+      - { name: DIM_POLICY_COVERAGE_ID, type: NUMBER, nulls: 0, distinct: 11 }
+      - { name: DIM_POLICY_COVERAGE_KEY, type: VARCHAR, nulls: 0, distinct: 11, values: ["AUTOLIAB", "AVIATION", "CYBER", "DO", "ENERGY", "GLPREM", "GLPROD", "MARINE", "PROPBI", "PROPCOM", "WC"] }
+      - { name: COVERAGE_CD, type: VARCHAR, nulls: 0, distinct: 11, values: ["AUTOLIAB", "AVIATION", "CYBER", "DO", "ENERGY", "GLPREM", "GLPROD", "MARINE", "PROPBI", "PROPCOM", "WC"] }
+      - { name: COVERAGE_NM, type: VARCHAR, nulls: 0, distinct: 11, values: ["Aviation Hull & Liability", "Business Interruption", "Commercial Auto Liability", "Commercial Property", "Cyber", "Directors & Officers", "Energy Property", "General Liability", "Marine Cargo", "Product Liability", "Workers Compensation"] }
+      - { name: LINE_OF_BUSINESS_CD, type: VARCHAR, nulls: 0, distinct: 8, values: ["AUTO", "AVI", "CAS", "ENER", "FL", "MAR", "PROP", "WC"] }
+      - { name: LINE_OF_BUSINESS_NM, type: VARCHAR, nulls: 0, distinct: 8, values: ["Aviation", "Casualty", "Commercial Auto", "Energy", "Financial Lines", "Marine", "Property", "Workers Comp"] }
+      - { name: COVERAGE_GROUP_CD, type: VARCHAR, nulls: 0, distinct: 3, values: ["FIN", "PC", "SPEC"] }
+      - { name: COVERAGE_GROUP_NM, type: VARCHAR, nulls: 0, distinct: 3, values: ["Financial Lines", "Property & Casualty", "Specialty"] }
+      - { name: PRODUCT_CD, type: VARCHAR, nulls: 0, distinct: 11, values: ["AUTO-L", "AV-HULL", "CY-NET", "DO-ABC", "EN-PROP", "GL-PREM", "GL-PROD", "MAR-CGO", "PROP-AR", "PROP-BI", "WC-STAT"] }
+      - { name: PRODUCT_NM, type: VARCHAR, nulls: 0, distinct: 11, values: ["All-Risk Property", "Auto Liability", "Business Interruption", "Cargo", "D&O ABC", "Energy All-Risk", "Hull & Liability", "Network Security", "Premises Liability", "Product Liability", "Statutory WC"] }
+      - { name: LONG_TAIL_IN, type: VARCHAR, nulls: 0, distinct: 2, values: ["N", "Y"] }
+  - name: TFACT_KPI
+    rows: 219520
+    columns:
+      - { name: FACT_KPI_ID, type: NUMBER, nulls: 0, distinct: 219520 }
+      - { name: DIM_SNAPSHOT_DATE_ID, type: NUMBER, nulls: 0, distinct: 36 }
+      - { name: DIM_FISCAL_MONTH_END_DATE_ID, type: NUMBER, nulls: 0, distinct: 36 }
+      - { name: DIM_ACCIDENT_MONTH_END_DATE_ID, type: NUMBER, nulls: 0, distinct: 36 }
+      - { name: DIM_POLICY_ID, type: NUMBER, nulls: 0, distinct: 4996 }
+      - { name: DIM_POLICY_KEY, type: VARCHAR, nulls: 0, distinct: 4996 }
+      - { name: DIM_CLAIM_ID, type: NUMBER, nulls: 67037, distinct: 9110 }
+      - { name: DIM_CLAIM_KEY, type: VARCHAR, nulls: 67037, distinct: 9110 }
+      - { name: DIM_LOCATION_ID, type: NUMBER, nulls: 0, distinct: 16 }
+      - { name: DIM_COMPANY_ID, type: NUMBER, nulls: 0, distinct: 6 }
+      - { name: DIM_BUSINESS_UNIT_ID, type: NUMBER, nulls: 0, distinct: 8 }
+      - { name: DIM_CLIENT_ID, type: NUMBER, nulls: 0, distinct: 799 }
+      - { name: DIM_CLIENT_KEY, type: VARCHAR, nulls: 0, distinct: 799 }
+      - { name: DIM_POLICY_COVERAGE_ID, type: NUMBER, nulls: 0, distinct: 11 }
+      - { name: DIM_POLICY_COVERAGE_KEY, type: VARCHAR, nulls: 0, distinct: 11, values: ["AUTOLIAB", "AVIATION", "CYBER", "DO", "ENERGY", "GLPREM", "GLPROD", "MARINE", "PROPBI", "PROPCOM", "WC"] }
+      - { name: GROSS_WRITTEN_PREMIUM_AMT, type: NUMBER, nulls: 152483, distinct: 4993 }
+      - { name: NET_WRITTEN_PREMIUM_AMT, type: NUMBER, nulls: 152483, distinct: 4993 }
+      - { name: NET_EARNED_PREMIUM_AMT, type: NUMBER, nulls: 152483, distinct: 6719 }
+      - { name: INCURRED_LOSS_AMT, type: NUMBER, nulls: 67037, distinct: 99994 }
+      - { name: PAID_LOSS_AMT, type: NUMBER, nulls: 67037, distinct: 111490 }
+      - { name: OUTSTANDING_RESERVE_AMT, type: NUMBER, nulls: 67037, distinct: 112284 }
+      - { name: CLAIM_EXPENSE_AMT, type: NUMBER, nulls: 67037, distinct: 95883 }
+      - { name: NET_COMMISSION_AMT, type: NUMBER, nulls: 152483, distinct: 6671 }
+      - { name: UNDERWRITING_EXPENSE_AMT, type: NUMBER, nulls: 152483, distinct: 6690 }
+      - { name: INVESTMENT_INCOME_AMT, type: NUMBER, nulls: 152483, distinct: 6474 }
+      - { name: OTHER_FINANCIAL_REVENUE_AMT, type: NUMBER, nulls: 152483, distinct: 5161 }
+      - { name: TAX_AND_OTHER_EXPENSE_AMT, type: NUMBER, nulls: 152483, distinct: 6577 }
+      - { name: POLICY_COUNT, type: NUMBER, nulls: 0, distinct: 2 }
+      - { name: CLAIM_COUNT, type: NUMBER, nulls: 0, distinct: 2 }
+      - { name: CURRENT_VALUATION_IN, type: VARCHAR, nulls: 0, distinct: 2, values: ["N", "Y"] }

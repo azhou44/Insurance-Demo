@@ -1,0 +1,9 @@
+unique_name: Investment Income
+object_type: metric
+label: Investment Income
+description: Investment income allocated to the business.
+calculation_method: sum
+format: $#,##0
+dataset: TFACT_KPI
+column: INVESTMENT_INCOME_AMT
+unrelated_dimensions_handling: repeat

@@ -1,0 +1,7 @@
+unique_name: Loss Ratio
+object_type: metric_calc
+label: Loss Ratio
+description: 'Incurred Loss (current valuation) / Net Earned Premium, from totals. Accident-year basis: slice by
+  the Accident date.'
+expression: Divide([Measures].[Incurred Loss], [Measures].[Net Earned Premium])
+format: percent

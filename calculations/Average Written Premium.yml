@@ -1,0 +1,6 @@
+unique_name: Average Written Premium
+object_type: metric_calc
+label: Average Written Premium
+description: 'Average gross premium per policy coverage written: Gross Written Premium / Policies Written.'
+expression: Divide([Measures].[Gross Written Premium], [Measures].[Policies Written])
+format: $#,##0

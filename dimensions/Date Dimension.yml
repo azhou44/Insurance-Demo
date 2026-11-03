@@ -1,0 +1,88 @@
+unique_name: Date Dimension
+object_type: dimension
+label: Date Dimension
+description: 'Calendar (fiscal year = calendar year): Year > Quarter > Month > Day. Role-played as Snapshot, Fiscal
+  and Accident date.'
+type: time
+hierarchies:
+- unique_name: Date Hierarchy
+  label: Date Hierarchy
+  description: 'Calendar (fiscal year = calendar year): Year > Quarter > Month > Day. Role-played as Snapshot, Fiscal
+    and Accident date.'
+  folder: Date Attributes
+  filter_empty: 'yes'
+  levels:
+  - unique_name: Year
+  - unique_name: Quarter
+    parallel_periods:
+    - key_columns:
+      - PRIOR_YEAR_NUM
+      level: Year
+    secondary_attributes:
+    - unique_name: Quarter Number
+      label: Quarter Number
+      description: Quarter number within the year (1-4).
+      dataset: TDIM_DATE
+      folder: Date Attributes
+      key_columns:
+      - QUARTER_NO
+      name_column: QUARTER_NO
+      sort_column: QUARTER_NO
+  - unique_name: Month
+    parallel_periods:
+    - key_columns:
+      - PRIOR_YEAR_NUM
+      level: Year
+    secondary_attributes:
+    - unique_name: Month Name
+      label: Month Name
+      description: Month name (January..December), not year-qualified.
+      dataset: TDIM_DATE
+      folder: Date Attributes
+      key_columns:
+      - MONTH_NM
+      name_column: MONTH_NM
+      sort_column: MONTH_NM
+  - unique_name: Day
+    parallel_periods:
+    - key_columns:
+      - PRIOR_YEAR_NUM
+      level: Year
+level_attributes:
+- unique_name: Year
+  label: Year
+  description: 'Calendar (= fiscal) year. Complete years in the data: 2024 and 2025.'
+  dataset: TDIM_DATE
+  key_columns:
+  - YEAR_NUM
+  name_column: YEAR_NO
+  sort_column: YEAR_NUM
+  time_unit: year
+- unique_name: Quarter
+  label: Quarter
+  description: Year-qualified quarter, e.g. 'Q2 2026'.
+  dataset: TDIM_DATE
+  key_columns:
+  - QUARTER_KEY
+  name_column: YEAR_QUARTER_NM
+  sort_column: QUARTER_KEY
+  time_unit: quarter
+- unique_name: Month
+  label: Month
+  description: Year-qualified month, e.g. '2026-06'.
+  dataset: TDIM_DATE
+  key_columns:
+  - MONTH_KEY
+  name_column: YEAR_MONTH_NM
+  sort_column: MONTH_KEY
+  time_unit: month
+- unique_name: Day
+  label: Day
+  description: Calendar day; the fact joins here on YYYYMMDD date keys.
+  dataset: TDIM_DATE
+  key_columns:
+  - DIM_DATE_ID
+  name_column: FULL_DT
+  sort_column: DIM_DATE_ID
+  time_unit: day
+  is_unique_key: true

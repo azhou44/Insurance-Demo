@@ -1,0 +1,29 @@
+unique_name: TDIM_POLICY_COVERAGE
+object_type: dataset
+label: TDIM_POLICY_COVERAGE
+description: Coverage (product) with coverage group, coverage line of business and long-tail flag.
+connection_id: Commercial Insurance Connection
+table: TDIM_POLICY_COVERAGE
+columns:
+- name: DIM_POLICY_COVERAGE_ID
+  data_type: long
+- name: DIM_POLICY_COVERAGE_KEY
+  data_type: string
+- name: COVERAGE_CD
+  data_type: string
+- name: COVERAGE_NM
+  data_type: string
+- name: LINE_OF_BUSINESS_CD
+  data_type: string
+- name: LINE_OF_BUSINESS_NM
+  data_type: string
+- name: COVERAGE_GROUP_CD
+  data_type: string
+- name: COVERAGE_GROUP_NM
+  data_type: string
+- name: PRODUCT_CD
+  data_type: string
+- name: PRODUCT_NM
+  data_type: string
+- name: LONG_TAIL_IN
+  data_type: string

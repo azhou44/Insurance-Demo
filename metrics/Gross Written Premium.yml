@@ -1,0 +1,9 @@
+unique_name: Gross Written Premium
+object_type: metric
+label: Gross Written Premium
+description: Gross premium written, booked in the inception month. Adds up over time; report by the Fiscal date.
+calculation_method: sum
+format: $#,##0
+dataset: TFACT_KPI
+column: GROSS_WRITTEN_PREMIUM_AMT
+unrelated_dimensions_handling: repeat

@@ -1,0 +1,46 @@
+unique_name: Company Dimension
+object_type: dimension
+label: Company Dimension
+description: Issuing legal entity.
+type: standard
+hierarchies:
+- unique_name: Company Hierarchy
+  label: Company Hierarchy
+  description: Issuing legal entity.
+  folder: Company Attributes
+  filter_empty: 'yes'
+  levels:
+  - unique_name: Company Group
+  - unique_name: Company Division
+  - unique_name: Region Entity
+  - unique_name: Legal Entity
+level_attributes:
+- unique_name: Company Group
+  label: Company Group
+  description: Top holding node.
+  dataset: TDIM_COMPANY
+  key_columns:
+  - COMPANY_LEVEL_1_NODE_CD
+  name_column: COMPANY_LEVEL_1_NODE_DS
+- unique_name: Company Division
+  label: Company Division
+  description: Division.
+  dataset: TDIM_COMPANY
+  key_columns:
+  - COMPANY_LEVEL_2_NODE_CD
+  name_column: COMPANY_LEVEL_2_NODE_DS
+- unique_name: Region Entity
+  label: Region Entity
+  description: North America or International.
+  dataset: TDIM_COMPANY
+  key_columns:
+  - COMPANY_LEVEL_3_NODE_CD
+  name_column: COMPANY_LEVEL_3_NODE_DS
+- unique_name: Legal Entity
+  label: Legal Entity
+  description: Issuing legal entity (6 entities).
+  dataset: TDIM_COMPANY
+  key_columns:
+  - DIM_COMPANY_ID
+  name_column: COMPANY_LEVEL_4_NODE_DS
+  is_unique_key: true

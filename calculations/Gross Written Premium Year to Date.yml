@@ -1,0 +1,9 @@
+unique_name: Gross Written Premium Year to Date
+object_type: metric_calc
+label: Gross Written Premium Year to Date
+description: Gross Written Premium from the start of the fiscal year to the current fiscal period.
+expression: 'CASE WHEN ISEMPTY([Measures].[Gross Written Premium]) THEN NULL
+
+  ELSE Aggregate(PeriodsToDate([Fiscal Date Dimension].[Fiscal Date Hierarchy].[Fiscal Year], [Fiscal Date Dimension].[Fiscal
+  Date Hierarchy].CurrentMember), [Measures].[Gross Written Premium]) END'
+format: $#,##0

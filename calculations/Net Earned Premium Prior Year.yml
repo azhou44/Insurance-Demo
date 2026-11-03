@@ -1,0 +1,9 @@
+unique_name: Net Earned Premium Prior Year
+object_type: metric_calc
+label: Net Earned Premium Prior Year
+description: Net Earned Premium for the same fiscal period one year earlier.
+expression: 'CASE WHEN ISEMPTY([Measures].[Net Earned Premium]) THEN NULL
+
+  ELSE (ParallelPeriod([Fiscal Date Dimension].[Fiscal Date Hierarchy].[Fiscal Year], 1, [Fiscal Date Dimension].[Fiscal
+  Date Hierarchy].CurrentMember), [Measures].[Net Earned Premium]) END'
+format: $#,##0

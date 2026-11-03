@@ -1,0 +1,9 @@
+unique_name: Net Earned Premium
+object_type: metric
+label: Net Earned Premium
+description: Net premium earned. Adds up over time; denominator of the loss, commission and combined ratios.
+calculation_method: sum
+format: $#,##0
+dataset: TFACT_KPI
+column: NET_EARNED_PREMIUM_AMT
+unrelated_dimensions_handling: repeat

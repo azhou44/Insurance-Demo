@@ -1,0 +1,6 @@
+unique_name: Operating Ratio
+object_type: metric_calc
+label: Operating Ratio
+description: Combined Ratio - Investment Income Ratio; below 100% is profitable after investment income.
+expression: '[Measures].[Combined Ratio] - [Measures].[Investment Income Ratio]'
+format: percent

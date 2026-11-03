@@ -1,0 +1,7 @@
+unique_name: Combined Ratio
+object_type: metric_calc
+label: Combined Ratio
+description: Loss Ratio + Expense Ratio; below 100% is an underwriting profit. Accident-year basis like the Loss
+  Ratio.
+expression: '[Measures].[Loss Ratio] + [Measures].[Expense Ratio]'
+format: percent

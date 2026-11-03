@@ -1,0 +1,6 @@
+unique_name: Expense Ratio
+object_type: metric_calc
+label: Expense Ratio
+description: Underwriting Expense / Net Written Premium, from totals.
+expression: Divide([Measures].[Underwriting Expense], [Measures].[Net Written Premium])
+format: percent

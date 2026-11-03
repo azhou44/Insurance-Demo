@@ -1,0 +1,9 @@
+unique_name: Net Commission
+object_type: metric
+label: Net Commission
+description: Broker commission expense. Adds up over time.
+calculation_method: sum
+format: $#,##0
+dataset: TFACT_KPI
+column: NET_COMMISSION_AMT
+unrelated_dimensions_handling: repeat

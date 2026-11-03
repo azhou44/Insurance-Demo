@@ -1,0 +1,10 @@
+unique_name: Gross Written Premium YoY Growth
+object_type: metric_calc
+label: Gross Written Premium YoY Growth
+description: 'Year-over-year growth of Gross Written Premium: (this period - same period last year) / same period
+  last year, fiscal date.'
+expression: 'CASE WHEN ISEMPTY([Measures].[Gross Written Premium Prior Year]) THEN NULL
+
+  ELSE Divide(([Fiscal Date Dimension].[Fiscal Date Hierarchy].CurrentMember, [Measures].[Gross Written Premium])
+  - [Measures].[Gross Written Premium Prior Year], [Measures].[Gross Written Premium Prior Year]) END'
+format: percent

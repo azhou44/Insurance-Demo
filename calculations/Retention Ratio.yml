@@ -1,0 +1,6 @@
+unique_name: Retention Ratio
+object_type: metric_calc
+label: Retention Ratio
+description: 'Share of gross premium kept after reinsurance: Net Written Premium / Gross Written Premium.'
+expression: Divide([Measures].[Net Written Premium], [Measures].[Gross Written Premium])
+format: percent

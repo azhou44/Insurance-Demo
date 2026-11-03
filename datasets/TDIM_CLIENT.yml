@@ -1,0 +1,39 @@
+unique_name: TDIM_CLIENT
+object_type: dataset
+label: TDIM_CLIENT
+description: Corporate client with market segment, sub-segment, HQ and domicile geography.
+connection_id: Commercial Insurance Connection
+table: TDIM_CLIENT
+columns:
+- name: DIM_CLIENT_ID
+  data_type: long
+- name: DIM_CLIENT_KEY
+  data_type: string
+- name: DOMICILE_COUNTRY_NM
+  data_type: string
+- name: COMPANY_NM
+  data_type: string
+- name: DOMICILE_COUNTRY_CD
+  data_type: string
+- name: MULTINATIONAL_IN
+  data_type: string
+- name: MARKET_SEGMENT_CD
+  data_type: string
+- name: MARKET_SEGMENT_NM
+  data_type: string
+- name: MARKET_SUB_SEGMENT_CD
+  data_type: string
+- name: MARKET_SUB_SEGMENT_NM
+  data_type: string
+- name: COUNTRY_CD
+  data_type: string
+- name: COUNTRY_NM
+  data_type: string
+- name: REGION_CD
+  data_type: string
+- name: REGION_NM
+  data_type: string
+- name: SUB_REGION_CD
+  data_type: string
+- name: SUB_REGION_NM
+  data_type: string

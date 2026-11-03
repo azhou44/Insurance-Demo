@@ -1,0 +1,6 @@
+unique_name: Paid to Incurred Ratio
+object_type: metric_calc
+label: Paid to Incurred Ratio
+description: 'Reserve-adequacy signal: Paid Loss / Incurred Loss, both at the current valuation.'
+expression: Divide([Measures].[Paid Loss], [Measures].[Incurred Loss])
+format: percent

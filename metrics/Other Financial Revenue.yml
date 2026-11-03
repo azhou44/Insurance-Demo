@@ -1,0 +1,9 @@
+unique_name: Other Financial Revenue
+object_type: metric
+label: Other Financial Revenue
+description: Other financial revenue.
+calculation_method: sum
+format: $#,##0
+dataset: TFACT_KPI
+column: OTHER_FINANCIAL_REVENUE_AMT
+unrelated_dimensions_handling: repeat

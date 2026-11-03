@@ -1,0 +1,10 @@
+unique_name: Net Written Premium YoY Growth
+object_type: metric_calc
+label: Net Written Premium YoY Growth
+description: 'Year-over-year growth of Net Written Premium: (this period - same period last year) / same period
+  last year, fiscal date.'
+expression: 'CASE WHEN ISEMPTY([Measures].[Net Written Premium Prior Year]) THEN NULL
+
+  ELSE Divide(([Fiscal Date Dimension].[Fiscal Date Hierarchy].CurrentMember, [Measures].[Net Written Premium])
+  - [Measures].[Net Written Premium Prior Year], [Measures].[Net Written Premium Prior Year]) END'
+format: percent

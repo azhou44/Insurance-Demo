@@ -1,0 +1,6 @@
+unique_name: Investment Income Ratio
+object_type: metric_calc
+label: Investment Income Ratio
+description: Investment Income / Net Earned Premium, from totals.
+expression: Divide([Measures].[Investment Income], [Measures].[Net Earned Premium])
+format: percent

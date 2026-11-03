@@ -1,0 +1,9 @@
+unique_name: Policies in Force
+object_type: metric
+label: Policies in Force
+description: 'Distinct policies with activity in the period. Not additive: counted distinct over the whole period.'
+calculation_method: count distinct
+format: '#,##0'
+dataset: TFACT_KPI
+column: DIM_POLICY_ID
+unrelated_dimensions_handling: repeat

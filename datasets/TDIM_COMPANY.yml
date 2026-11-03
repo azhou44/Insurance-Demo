@@ -1,0 +1,31 @@
+unique_name: TDIM_COMPANY
+object_type: dataset
+label: TDIM_COMPANY
+description: 'Issuing legal entity: Company Group > Division > Region Entity > Legal Entity.'
+connection_id: Commercial Insurance Connection
+table: TDIM_COMPANY
+columns:
+- name: DIM_COMPANY_ID
+  data_type: long
+- name: COMPANY
+  data_type: string
+- name: DIM_COMPANY_KEY
+  data_type: string
+- name: COMPANY_NM
+  data_type: string
+- name: COMPANY_LEVEL_1_NODE_CD
+  data_type: string
+- name: COMPANY_LEVEL_1_NODE_DS
+  data_type: string
+- name: COMPANY_LEVEL_2_NODE_CD
+  data_type: string
+- name: COMPANY_LEVEL_2_NODE_DS
+  data_type: string
+- name: COMPANY_LEVEL_3_NODE_CD
+  data_type: string
+- name: COMPANY_LEVEL_3_NODE_DS
+  data_type: string
+- name: COMPANY_LEVEL_4_NODE_CD
+  data_type: string
+- name: COMPANY_LEVEL_4_NODE_DS
+  data_type: string

@@ -1,0 +1,9 @@
+unique_name: Claim Expense
+object_type: metric
+label: Claim Expense
+description: Claim handling (loss adjustment) expense at the current valuation (latest snapshot only).
+calculation_method: sum
+format: $#,##0
+dataset: TFACT_KPI
+column: CLAIM_EXPENSE_CURRENT_AMT
+unrelated_dimensions_handling: repeat

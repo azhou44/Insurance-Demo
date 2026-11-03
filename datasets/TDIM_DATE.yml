@@ -1,0 +1,60 @@
+unique_name: TDIM_DATE
+object_type: dataset
+label: TDIM_DATE
+description: 'Conformed calendar, one row per day (2020-2026). Role-played three times by the KPI fact: Snapshot,
+  Fiscal and Accident.'
+connection_id: Commercial Insurance Connection
+table: TDIM_DATE
+columns:
+- name: DIM_DATE_ID
+  data_type: long
+- name: FULL_DT
+  data_type: date
+- name: DOMESTIC_INTERNATIONAL_CD
+  data_type: string
+- name: DAY_NM
+  data_type: string
+- name: DAY_OF_WEEK_NO
+  data_type: string
+- name: DAY_OF_MONTH_NO
+  data_type: string
+- name: DAY_OF_QUARTER_NO
+  data_type: string
+- name: DAY_OF_YEAR_NO
+  data_type: string
+- name: MONTH_NO
+  data_type: string
+- name: MONTH_NM
+  data_type: string
+- name: MONTH_OF_QUARTER_NO
+  data_type: string
+- name: QUARTER_NO
+  data_type: string
+- name: YEAR_NO
+  data_type: string
+- name: MONTH_YEAR_NO
+  data_type: string
+- name: WEEKDAY_IN
+  data_type: string
+- name: WEEKEND_IN
+  data_type: string
+- name: HOLIDAY_IN
+  data_type: string
+- name: HOLIDAY_NM
+  data_type: string
+- name: YEAR_QUARTER_NM
+  data_type: string
+- name: YEAR_MONTH_NM
+  data_type: string
+- name: YEAR_NUM
+  data_type: long
+  sql: CAST(YEAR_NO AS INTEGER)
+- name: PRIOR_YEAR_NUM
+  data_type: long
+  sql: CAST(YEAR_NO AS INTEGER) - 1
+- name: QUARTER_KEY
+  data_type: long
+  sql: CAST(YEAR_NO AS INTEGER) * 10 + CAST(QUARTER_NO AS INTEGER)
+- name: MONTH_KEY
+  data_type: long
+  sql: CAST(MONTH_YEAR_NO AS INTEGER)

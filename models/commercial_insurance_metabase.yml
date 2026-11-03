@@ -1,0 +1,165 @@
+unique_name: commercial_insurance_metabase
+object_type: model
+label: Commercial Insurance (from Metabase)
+description: 'Commercial P&C insurance KPI model generated from the Metabase business catalog: one monthly KPI fact,
+  eight conformed dimensions, the calendar role-played as Snapshot, Fiscal and Accident date.'
+visible: true
+relationships:
+- unique_name: TFACT_KPI_Date_Dimension_Snapshot
+  from:
+    dataset: TFACT_KPI
+    join_columns:
+    - DIM_SNAPSHOT_DATE_ID
+  to:
+    dimension: Date Dimension
+    level: Day
+  role_play: Snapshot {0}
+- unique_name: TFACT_KPI_Date_Dimension_Fiscal
+  from:
+    dataset: TFACT_KPI
+    join_columns:
+    - DIM_FISCAL_MONTH_END_DATE_ID
+  to:
+    dimension: Date Dimension
+    level: Day
+  role_play: Fiscal {0}
+- unique_name: TFACT_KPI_Date_Dimension_Accident
+  from:
+    dataset: TFACT_KPI
+    join_columns:
+    - DIM_ACCIDENT_MONTH_END_DATE_ID
+  to:
+    dimension: Date Dimension
+    level: Day
+  role_play: Accident {0}
+- unique_name: TFACT_KPI_Business_Unit_Dimension
+  from:
+    dataset: TFACT_KPI
+    join_columns:
+    - DIM_BUSINESS_UNIT_ID
+  to:
+    dimension: Business Unit Dimension
+    level: Line of Business
+- unique_name: TFACT_KPI_Coverage_Dimension
+  from:
+    dataset: TFACT_KPI
+    join_columns:
+    - DIM_POLICY_COVERAGE_ID
+  to:
+    dimension: Coverage Dimension
+    level: Coverage
+- unique_name: TFACT_KPI_Location_Dimension
+  from:
+    dataset: TFACT_KPI
+    join_columns:
+    - DIM_LOCATION_ID
+  to:
+    dimension: Location Dimension
+    level: City
+- unique_name: TFACT_KPI_Company_Dimension
+  from:
+    dataset: TFACT_KPI
+    join_columns:
+    - DIM_COMPANY_ID
+  to:
+    dimension: Company Dimension
+    level: Legal Entity
+- unique_name: TFACT_KPI_Client_Dimension
+  from:
+    dataset: TFACT_KPI
+    join_columns:
+    - DIM_CLIENT_ID
+  to:
+    dimension: Client Dimension
+    level: Client
+- unique_name: TFACT_KPI_Policy_Dimension
+  from:
+    dataset: TFACT_KPI
+    join_columns:
+    - DIM_POLICY_ID
+  to:
+    dimension: Policy Dimension
+    level: Policy
+- unique_name: TFACT_KPI_Claim_Dimension
+  from:
+    dataset: TFACT_KPI
+    join_columns:
+    - DIM_CLAIM_ID
+  to:
+    dimension: Claim Dimension
+    level: Claim
+metrics:
+- unique_name: Gross Written Premium
+  folder: Premium
+- unique_name: Net Written Premium
+  folder: Premium
+- unique_name: Net Earned Premium
+  folder: Premium
+- unique_name: Policies in Force
+  folder: Premium
+- unique_name: Policies Written
+  folder: Premium
+- unique_name: Incurred Loss
+  folder: Losses & Reserves
+- unique_name: Paid Loss
+  folder: Losses & Reserves
+- unique_name: Outstanding Reserve
+  folder: Losses & Reserves
+- unique_name: Claim Expense
+  folder: Losses & Reserves
+- unique_name: Incurred Loss Balance
+  folder: Losses & Reserves
+- unique_name: Paid Loss Balance
+  folder: Losses & Reserves
+- unique_name: Outstanding Reserve Balance
+  folder: Losses & Reserves
+- unique_name: Claim Count
+  folder: Losses & Reserves
+- unique_name: Net Commission
+  folder: Financial Results
+- unique_name: Underwriting Expense
+  folder: Financial Results
+- unique_name: Investment Income
+  folder: Financial Results
+- unique_name: Other Financial Revenue
+  folder: Financial Results
+- unique_name: Tax and Other Expense
+  folder: Financial Results
+- unique_name: Retention Ratio
+  folder: Premium
+- unique_name: Average Written Premium
+  folder: Premium
+- unique_name: Average Incurred per Claim
+  folder: Losses & Reserves
+- unique_name: Loss Ratio
+  folder: Underwriting Ratios
+- unique_name: Expense Ratio
+  folder: Underwriting Ratios
+- unique_name: Commission Ratio
+  folder: Underwriting Ratios
+- unique_name: Combined Ratio
+  folder: Underwriting Ratios
+- unique_name: Investment Income Ratio
+  folder: Underwriting Ratios
+- unique_name: Operating Ratio
+  folder: Underwriting Ratios
+- unique_name: Paid to Incurred Ratio
+  folder: Underwriting Ratios
+- unique_name: Underwriting Result
+  folder: Financial Results
+- unique_name: Net Result
+  folder: Financial Results
+- unique_name: Gross Written Premium Prior Year
+  folder: Premium
+- unique_name: Gross Written Premium YoY Growth
+  folder: Premium
+- unique_name: Net Written Premium Prior Year
+  folder: Premium
+- unique_name: Net Written Premium YoY Growth
+  folder: Premium
+- unique_name: Net Earned Premium Prior Year
+  folder: Premium
+- unique_name: Net Earned Premium YoY Growth
+  folder: Premium
+- unique_name: Gross Written Premium Year to Date
+  folder: Premium

@@ -1,0 +1,6 @@
+unique_name: Average Incurred per Claim
+object_type: metric_calc
+label: Average Incurred per Claim
+description: 'Claim severity: Incurred Loss (current valuation) / Claim Count.'
+expression: Divide([Measures].[Incurred Loss], [Measures].[Claim Count])
+format: $#,##0

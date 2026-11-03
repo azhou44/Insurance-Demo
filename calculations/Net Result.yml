@@ -1,0 +1,7 @@
+unique_name: Net Result
+object_type: metric_calc
+label: Net Result
+description: Underwriting Result + Investment Income + Other Financial Revenue - Tax and Other Expense.
+expression: '[Measures].[Underwriting Result] + [Measures].[Investment Income] + [Measures].[Other Financial Revenue]
+  - [Measures].[Tax and Other Expense]'
+format: $#,##0

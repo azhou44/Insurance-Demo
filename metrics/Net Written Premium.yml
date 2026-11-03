@@ -1,0 +1,9 @@
+unique_name: Net Written Premium
+object_type: metric
+label: Net Written Premium
+description: Written premium net of reinsurance. Adds up over time; report by the Fiscal date.
+calculation_method: sum
+format: $#,##0
+dataset: TFACT_KPI
+column: NET_WRITTEN_PREMIUM_AMT
+unrelated_dimensions_handling: repeat

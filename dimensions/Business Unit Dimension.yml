@@ -1,0 +1,38 @@
+unique_name: Business Unit Dimension
+object_type: dimension
+label: Business Unit Dimension
+description: Underwriting business unit that owns premium and losses.
+type: standard
+hierarchies:
+- unique_name: Business Unit Hierarchy
+  label: Business Unit Hierarchy
+  description: Underwriting business unit that owns premium and losses.
+  folder: Business Unit Attributes
+  filter_empty: 'yes'
+  levels:
+  - unique_name: Global Commercial
+  - unique_name: LOB Group
+  - unique_name: Line of Business
+level_attributes:
+- unique_name: Global Commercial
+  label: Global Commercial
+  description: Top of the business unit hierarchy.
+  dataset: TDIM_BUSINESS_UNIT
+  key_columns:
+  - BUSINESS_UNIT_LEVEL_1_NODE_CD
+  name_column: BUSINESS_UNIT_LEVEL_1_NODE_DS
+- unique_name: LOB Group
+  label: LOB Group
+  description: Property & Casualty, Financial Lines or Specialty.
+  dataset: TDIM_BUSINESS_UNIT
+  key_columns:
+  - BUSINESS_UNIT_LEVEL_2_NODE_CD
+  name_column: BUSINESS_UNIT_LEVEL_2_NODE_DS
+- unique_name: Line of Business
+  label: Line of Business
+  description: Line of business (8 lines). General Liability is the long-tail line under watch.
+  dataset: TDIM_BUSINESS_UNIT
+  key_columns:
+  - DIM_BUSINESS_UNIT_ID
+  name_column: BUSINESS_UNIT_LEVEL_3_NODE_DS
+  is_unique_key: true

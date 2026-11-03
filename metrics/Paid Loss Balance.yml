@@ -1,0 +1,13 @@
+unique_name: Paid Loss Balance
+object_type: metric
+label: Paid Loss Balance
+description: 'Paid loss as of a valuation snapshot: the latest snapshot in the period on the Snapshot date.'
+calculation_method: sum
+format: $#,##0
+dataset: TFACT_KPI
+column: PAID_LOSS_AMT
+unrelated_dimensions_handling: repeat
+semi_additive:
+  position: last
+  relationships:
+  - TFACT_KPI_Date_Dimension_Snapshot

@@ -1,0 +1,9 @@
+unique_name: Gross Written Premium Prior Year
+object_type: metric_calc
+label: Gross Written Premium Prior Year
+description: Gross Written Premium for the same fiscal period one year earlier.
+expression: 'CASE WHEN ISEMPTY([Measures].[Gross Written Premium]) THEN NULL
+
+  ELSE (ParallelPeriod([Fiscal Date Dimension].[Fiscal Date Hierarchy].[Fiscal Year], 1, [Fiscal Date Dimension].[Fiscal
+  Date Hierarchy].CurrentMember), [Measures].[Gross Written Premium]) END'
+format: $#,##0
