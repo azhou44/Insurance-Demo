@@ -10,7 +10,8 @@ used: no other SML, only the Metabase export in `context/` and the skill's bundl
 - `context/ddl.sql`: CREATE TABLE statements rebuilt from Metabase column metadata.
 - `context/erd.mmd`: Mermaid ERD of the 10 foreign keys set in Metabase.
 - `context/data_profile.yaml`: exact row, distinct and null counts computed through Metabase in Snowflake.
-- `context/catalog.json`: the raw Metabase extract; used for column base types (integer vs decimal, Rule 22).
+- `context/catalog.json`: the raw Metabase extract; used for column base types (integer vs decimal, Rule 22) and
+  for the model relationships (each field's foreign-key target).
 - `context/build.yaml`: build settings.
 - NLQs: (not provided as a separate file; metric rules in use_case.md drive coverage).
 - Target warehouse: Snowflake.
@@ -42,7 +43,10 @@ used: no other SML, only the Metabase export in `context/` and the skill's bundl
 - **Ratios use `Divide()`** over base totals, so ratios are computed from totals and blank (not infinite) on a zero
   denominator (e.g. premium ratios sliced by Claim, which only loss rows carry).
 - **Combined / Operating Ratio** are sums/differences of the component ratio calcs, as the catalog defines them.
-- **Date roles**: the fact has three date keys, so one Date Dimension is role-played as Snapshot, Fiscal and Accident (Rule 21).
+- **Relationships from Metabase foreign keys**: every TFACT_KPI field with a foreign-key target in `catalog.json`
+  becomes a relationship to the dimension level keyed on that target column; a key with no matching level stops the build.
+- **Date roles**: three fact keys point at TDIM_DATE, so one Date Dimension is role-played (Rule 21). Each role is
+  named from the key's Metabase display name minus 'Date' / 'Month End': Snapshot, Fiscal and Accident.
 - **Date hierarchy keys**: YEAR_NO, QUARTER_NO and MONTH_YEAR_NO are text, so numeric calculated keys YEAR_NUM,
   QUARTER_KEY and MONTH_KEY back the levels, with year-qualified labels YEAR_QUARTER_NM / YEAR_MONTH_NM as names.
   PRIOR_YEAR_NUM backs `parallel_periods` on Quarter, Month and Day (Rule 13).
@@ -65,7 +69,7 @@ used: no other SML, only the Metabase export in `context/` and the skill's bundl
 - Dimensions: 8 (Date Dimension is `type: time`, role-played 3x)
 - Base metrics: 18 (3 semi-additive Balance metrics; the rest additive or count distinct)
 - Calculated metrics: 19 (ratios, results, prior year / YoY / YTD)
-- Model relationships: 10 (3 role-played Date + 7 dimensions)
+- Model relationships: 10 (3 role-played Date + 7 dimensions), all from Metabase foreign keys
 - Role-play prefixes: Snapshot, Fiscal, Accident
 - Snowflake bridges: none (every dimension is one table)
 - Calculated columns: TDIM_DATE (YEAR_NUM, PRIOR_YEAR_NUM, QUARTER_KEY, MONTH_KEY); TFACT_KPI (4 current-valuation
