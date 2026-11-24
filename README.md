@@ -49,7 +49,9 @@ used: no other SML, only the Metabase export in `context/` and the skill's bundl
   named from the key's Metabase display name minus 'Date' / 'Month End': Snapshot, Fiscal and Accident.
 - **Date hierarchy keys**: YEAR_NO, QUARTER_NO and MONTH_YEAR_NO are text, so numeric calculated keys YEAR_NUM,
   QUARTER_KEY and MONTH_KEY back the levels, with year-qualified labels YEAR_QUARTER_NM / YEAR_MONTH_NM as names.
-  PRIOR_YEAR_NUM backs `parallel_periods` on Quarter, Month and Day (Rule 13).
+  `parallel_periods` on Quarter, Month and Day are keyed on that level's own key one year earlier
+  (PRIOR_YEAR_QUARTER_KEY, PRIOR_YEAR_MONTH_KEY, PRIOR_YEAR_DATE_ID), following the Internet Sales `*_lykey` columns.
+  Rule 13's PRIOR_YEAR_NUM (a year key) matches no member below Year, so prior-year calcs return null there.
 - **Prior year, YoY and YTD on the Fiscal role** (Rule 4: premium is booked by fiscal month): GWP, NWP, NEP get Prior Year
   and YoY Growth; GWP gets Year to Date, per the catalog's "report year-over-year and year-to-date on the fiscal calendar".
 - **Product is a secondary attribute of Coverage**, not a level: the profile shows 11 products for 11 coverages (1:1).
@@ -72,7 +74,8 @@ used: no other SML, only the Metabase export in `context/` and the skill's bundl
 - Model relationships: 10 (3 role-played Date + 7 dimensions), all from Metabase foreign keys
 - Role-play prefixes: Snapshot, Fiscal, Accident
 - Snowflake bridges: none (every dimension is one table)
-- Calculated columns: TDIM_DATE (YEAR_NUM, PRIOR_YEAR_NUM, QUARTER_KEY, MONTH_KEY); TFACT_KPI (4 current-valuation
+- Calculated columns: TDIM_DATE (YEAR_NUM, QUARTER_KEY, MONTH_KEY, PRIOR_YEAR_QUARTER_KEY,
+  PRIOR_YEAR_MONTH_KEY, PRIOR_YEAR_DATE_ID); TFACT_KPI (4 current-valuation
   amounts, POLICY_WRITTEN_CNT)
 - Caveats: Balance metrics fall back to a sum across snapshots when no Snapshot date level is in the query; premium
   measures sliced by Claim are empty (premium rows carry no claim); complete years are 2024 and 2025.

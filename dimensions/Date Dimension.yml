@@ -16,7 +16,7 @@ hierarchies:
   - unique_name: Quarter
     parallel_periods:
     - key_columns:
-      - PRIOR_YEAR_NUM
+      - PRIOR_YEAR_QUARTER_KEY
       level: Year
     secondary_attributes:
     - unique_name: Quarter Number
@@ -31,7 +31,7 @@ hierarchies:
   - unique_name: Month
     parallel_periods:
     - key_columns:
-      - PRIOR_YEAR_NUM
+      - PRIOR_YEAR_MONTH_KEY
       level: Year
     secondary_attributes:
     - unique_name: Month Name
@@ -46,7 +46,7 @@ hierarchies:
   - unique_name: Day
     parallel_periods:
     - key_columns:
-      - PRIOR_YEAR_NUM
+      - PRIOR_YEAR_DATE_ID
       level: Year
 level_attributes:
 - unique_name: Year

@@ -49,12 +49,18 @@ columns:
 - name: YEAR_NUM
   data_type: long
   sql: CAST(YEAR_NO AS INTEGER)
-- name: PRIOR_YEAR_NUM
-  data_type: long
-  sql: CAST(YEAR_NO AS INTEGER) - 1
 - name: QUARTER_KEY
   data_type: long
   sql: CAST(YEAR_NO AS INTEGER) * 10 + CAST(QUARTER_NO AS INTEGER)
 - name: MONTH_KEY
   data_type: long
   sql: CAST(MONTH_YEAR_NO AS INTEGER)
+- name: PRIOR_YEAR_QUARTER_KEY
+  data_type: long
+  sql: (CAST(YEAR_NO AS INTEGER) - 1) * 10 + CAST(QUARTER_NO AS INTEGER)
+- name: PRIOR_YEAR_MONTH_KEY
+  data_type: long
+  sql: CAST(MONTH_YEAR_NO AS INTEGER) - 100
+- name: PRIOR_YEAR_DATE_ID
+  data_type: long
+  sql: CAST(TO_CHAR(DATEADD(year, -1, FULL_DT), 'YYYYMMDD') AS INTEGER)
